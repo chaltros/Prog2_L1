@@ -15,17 +15,11 @@ namespace Prog2_L1
             set { allatok = value; }
         }
 
-        private string nev;
-        public string Nev
-        {
-            get { return nev; }
-            set { nev = value; }
-        }
 
 
-        public Ketrec(string nev)
+        public Ketrec()
         {
-            this.nev = nev;
+
         }
         
 

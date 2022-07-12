@@ -43,5 +43,7 @@ namespace Prog2_L1
             this.suly = suly;
             this.faj = faj;
         }
+
+       
     }
 }
