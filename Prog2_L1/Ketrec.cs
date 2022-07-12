@@ -15,9 +15,21 @@ namespace Prog2_L1
             set { allatok = value; }
         }
 
+        private string nev;
+        public string Nev
+        {
+            get { return nev; }
+            set { nev = value; }
+        }
+
+
+        public Ketrec(string nev)
+        {
+            this.nev = nev;
+        }
         
 
-        void Felvetel(ref Allat[] allatok, Allat a)
+        void Felvetel(Allat[] allatok, Allat a)
         {
             Allat[] temp = new Allat[allatok.Length];
             int counter = 0;
@@ -42,16 +54,9 @@ namespace Prog2_L1
                 }
                 allatok = temp;
             }
+
         }
-        void Feltoltes(Allat[] allatok, string[] inputText)
-        {
-            allatok = new Allat[inputText.Length - 1];
-            for (int i = 0; i < inputText.Length; i++)
-            {
-                string[] row = inputText[i].Split(' ');
-                allatok[i].Nev
-            }
-        }
+        
 
 
         public int FajDarab(string faj)

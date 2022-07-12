@@ -8,10 +8,6 @@ using System.IO;
 
 namespace Prog2_L1
 {
-    enum Column
-    {
-        Nev,Nem,Suly,Faj
-    }
     internal class IO
     {
         private string[] inputText;

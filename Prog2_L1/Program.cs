@@ -6,8 +6,18 @@ namespace Prog2_L1 // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            Ketrec[] allatkert = new Ketrec[4];
+
             IO io = new IO("source.txt");
+
+            Ketrec[] allatkertek =
+            {
+                allatkertek[0] = new Ketrec
+
+
+            };
+
+
+
             
         }
     }
