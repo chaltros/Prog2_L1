@@ -17,9 +17,9 @@ namespace Prog2_L1
 
 
 
-        public Ketrec()
+        public Ketrec(int meret)
         {
-
+            this.allatok = new Allat[meret];
         }
         
 

@@ -8,11 +8,25 @@ namespace Prog2_L1
 {
     internal class Logic
     {
-
-
-        public Logic()
+        private Ketrec[] allatkertek = new Ketrec[4]
         {
 
+        };
+
+        public Ketrec[] Allatkertek
+        {
+            get { return allatkertek ; }
+            set { allatkertek = value; }
+        } 
+
+
+
+        public Logic(int elso, int masodik, int harmadik, int negyedik)
+        {
+            allatkertek[0].Allatok = new Allat[elso];
+            allatkertek[1].Allatok = new Allat[masodik];
+            allatkertek[2].Allatok = new Allat[harmadik];
+            allatkertek[3].Allatok = new Allat[negyedik];
         }
 
         public void Feltoltes(Ketrec[] allatkertek, string[] inputText)
@@ -29,12 +43,21 @@ namespace Prog2_L1
         }
          Allat TextToData(string text)
          {
+            Allat back;
             string[] array = text.Split(' ');
             bool nem = true;
-            if (text[1] == nosteny){
+            if (array[1] == "nosteny"){
                 nem = false;
             }
-            Allat back = new Allat(array[0], nem, array[2], array[3]);
+
+            List<string> faj = new List<string>();
+            for (int i = 0; i < array[2].Split(',').Length; i++)
+            {
+                faj.Add(array[2].Split(',')[i]);
+            }
+
+            back = new Allat(array[0], nem, int.Parse(array[1]), faj);
+
             return back;
          }
 
