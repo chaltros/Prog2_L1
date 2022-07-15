@@ -17,9 +17,9 @@ namespace Prog2_L1
 
 
 
-        public Ketrec(int meret)
+        public Ketrec()
         {
-            this.allatok = new Allat[meret];
+
         }
         
 
@@ -53,22 +53,6 @@ namespace Prog2_L1
         
 
 
-        public int FajDarab(string faj)
-        {
-            int vissza = 0;
-            for (int i = 0; i < allatok.Length; i++)
-            {
-                List<string> vizsgalt = allatok[i].Faj;
-                foreach (string j in vizsgalt)
-                {
-                    if (j == faj)
-                    {
-                        vissza++;
-                    }
-                }
-            }
-
-            return vissza;
-        }
+       
     }
 }
