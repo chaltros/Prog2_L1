@@ -61,24 +61,41 @@ namespace Prog2_L1
             return back;
          }
 
-        public int FajDarab(string faj)
+        public int FajDarab(string faj, int sorszam)
         {
             int vissza = 0;
-            List<string> vizsgalt = new List<string>();
-            for (int i = 0; i < allatkertek.Length; i++)
+
+            for (int i = 0; i < allatkertek[sorszam].Allatok.Length; i++)
             {
-                vizsgalt = allatkertek[i].Faj;
-                foreach (string j in vizsgalt)
+                for (int j = 0; j < allatkertek[sorszam].Allatok[i].Faj.Count; j++)
                 {
-                    if (j == faj)
+                    if (allatkertek[sorszam].Allatok[i].Faj[j] == faj)
                     {
                         vissza++;
+                    }
+                }
+            }
+            return vissza;
+        }
+
+        public Allat[] FajEsNemVanE(Allat faj, int sorszam)
+        {
+            Allat[] vissza;
+            int counter = 0;
+            for (int i = 0; i < allatkertek[sorszam].Allatok.Length; i++)
+            {
+                for (int j = 0; j < allatkertek[sorszam].Allatok[i].Faj.Count; j++)
+                {
+                    if (allatkertek[sorszam].Allatok[i].Faj[j] == faj)
+                    {
+                        counter++;
                     }
                 }
             }
 
             return vissza;
         }
+
 
     }
 }
