@@ -29,19 +29,46 @@ namespace Prog2_L1
             allatkertek[3].Allatok = new Allat[negyedik];
         }
 
-        public void Feltoltes(string[] inputText)
+        bool Feltoltes(string[] inputText)
         {
+            bool back = false;
+            if (allatkertek[allatkertek.Length - 1].Allatok[0] != null)
+            {
+                int counter = 0;
+                for (int i = 0; i < allatkertek.Length; i++)
+                {
+                    for (int j = 0; j < allatkertek[i].Allatok.Length; j++)
+                    {
+                        allatkertek[i].Allatok[j] = TextToData(inputText[counter++]);
+                    }
+                }
+                back = true;
+            }
+            return back;
 
-            int counter = 0;
-            for (int i = 0; i < allatkertek.Length; i++)
-			{
-                for (int j = 0; j < allatkertek[i].Allatok.Length; j++)
-			    {
-                    allatkertek[i].Allatok[j] = TextToData(inputText[counter++]); 
-			    }
-			}
+            
         }
-         Allat TextToData(string text)
+        bool Torol(ref Allat[] allatok, string allat)
+        {
+            bool back = false;
+            Allat[] temp = new Allat[allatok.Length - 1];
+            int counter = 0;
+            for (int i = 0; i < allatok.Length; i++)
+            {
+                if (allatok[i].Nev != allat)
+                {
+                    temp[counter++] = allatok[i];
+                }
+                else
+                {
+                    back = true;
+                }
+                allatok = temp;
+            }
+
+            return back;
+        }
+        Allat TextToData(string text)
          {
             Allat back;
             string[] array = text.Split(' ');
@@ -78,23 +105,25 @@ namespace Prog2_L1
             return vissza;
         }
 
-        public Allat[] FajEsNemVanE(Allat faj, int sorszam)
+        bool FajEsNemVanE(string name, bool gender)
         {
-            Allat[] vissza;
-            int counter = 0;
-            for (int i = 0; i < allatkertek[sorszam].Allatok.Length; i++)
+            bool back = false;
+
+
+            for (int i = 0; i < allatkertek.Length; i++)
             {
-                for (int j = 0; j < allatkertek[sorszam].Allatok[i].Faj.Count; j++)
+                for (int j = 0; j < allatkertek[i].Allatok.Length; j++)
                 {
-                    if (allatkertek[sorszam].Allatok[i].Faj[j] == faj)
-                    {
-                        counter++;
+                    if (allatkertek[i].Allatok[j].Nev == name 
+                        && allatkertek[i].Allatok[j].Nem == gender){
+                        back = true;
                     }
                 }
             }
-
-            return vissza;
+            return back;
         }
+
+
 
 
     }

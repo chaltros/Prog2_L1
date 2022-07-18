@@ -36,20 +36,7 @@ namespace Prog2_L1
             allatok = temp;
             
         }
-        void Torol(ref Allat[] allatok, string allat)
-        {
-            Allat[] temp = new Allat[allatok.Length - 1];
-            int counter = 0;
-            for (int i = 0; i < allatok.Length; i++)
-            {
-                if (allatok[i].Nev == allat)
-                {
-                    temp[counter++] = allatok[i];
-                }
-                allatok = temp;
-            }
-
-        }
+        
         
 
 
