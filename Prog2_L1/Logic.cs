@@ -29,7 +29,7 @@ namespace Prog2_L1
             allatkertek[3].Allatok = new Allat[negyedik];
         }
 
-        bool Feltoltes(string[] inputText)
+        public bool Feltoltes(string[] inputText)
         {
             bool back = false;
             if (allatkertek[allatkertek.Length - 1].Allatok[0] != null)
@@ -39,6 +39,7 @@ namespace Prog2_L1
                 {
                     for (int j = 0; j < allatkertek[i].Allatok.Length; j++)
                     {
+
                         allatkertek[i].Allatok[j] = TextToData(inputText[counter++]);
                     }
                 }
@@ -88,21 +89,23 @@ namespace Prog2_L1
             return back;
          }
 
-        public int FajDarab(string faj, int sorszam)
+        public int FajDarab(string faj, int sorszam) 
         {
-            int vissza = 0;
+            int back = 0;
+            Allat[] act = allatkertek[sorszam].Allatok;
 
-            for (int i = 0; i < allatkertek[sorszam].Allatok.Length; i++)
+            foreach (Allat i in act) 
             {
-                for (int j = 0; j < allatkertek[sorszam].Allatok[i].Faj.Count; j++)
+                foreach (string j in i.Faj)
                 {
-                    if (allatkertek[sorszam].Allatok[i].Faj[j] == faj)
+                    if (j == faj)
                     {
-                        vissza++;
+                        back++;
                     }
                 }
             }
-            return vissza;
+
+            return back;
         }
 
         bool FajEsNemVanE(string name, bool gender)
